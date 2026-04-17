@@ -10,7 +10,7 @@ class Student:
 class personal_info(Student):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        self.address=kwargs.get('address')
+       self.address=kwargs.get('address')
         self.city=kwargs.get('city')
         self.district=kwargs.get('district')
         self.pincode=kwargs.get('pincode')
