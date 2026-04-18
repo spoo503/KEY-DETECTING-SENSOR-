@@ -13,7 +13,7 @@ LED
 Bluetooth Module (optional)
 Battery
 
-📳 Working
+#📳 Working
 The device is attached to the keys.
 When it is triggered, the Arduino sends a signal to the buzzer and LED.
 The buzzer makes a sound and the LED glows, making it easy to find the keys.
