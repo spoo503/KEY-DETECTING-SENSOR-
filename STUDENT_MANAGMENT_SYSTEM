@@ -1,139 +1,162 @@
 class Student:
-    def __init__(self,**kwargs):
-        self.name=kwargs.get('name')
-        self.roll_no=kwargs.get('roll_no')
-        self.stu_class=kwargs.get('stu_class')
+    def __init__(self, **kwargs):
+        self.name = kwargs.get('name')
+        self.roll_no = kwargs.get('roll_no')
+        self.stu_class = kwargs.get('stu_class')
+
     def display(self):
-        print("Name of the student",self.name)
-        print("Roll_number of the student",self.roll_no)
-        print("Class of the student",self.stu_class)
+        print("Name of the student:", self.name)
+        print("Roll number:", self.roll_no)
+        print("Class:", self.stu_class)
+
+
 class personal_info(Student):
-    def __init__(self,**kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
-       self.address=kwargs.get('address')
-        self.city=kwargs.get('city')
-        self.district=kwargs.get('district')
-        self.pincode=kwargs.get('pincode')
-        self.mobile=kwargs.get('mobile')
-        self.mother_name=kwargs.get('mother_name')
-        self.mobile_no=kwargs.get('mobile_no')
-        self.father_name=kwargs.get('father_name')
-        self.mobile_2=kwargs.get('mobile_2')
+        self.address = kwargs.get('address')
+        self.city = kwargs.get('city')
+        self.district = kwargs.get('district')
+        self.pincode = kwargs.get('pincode')
+        self.mobile = kwargs.get('mobile')
+        self.mother_name = kwargs.get('mother_name')
+        self.mobile_no = kwargs.get('mobile_no')
+        self.father_name = kwargs.get('father_name')
+        self.mobile_2 = kwargs.get('mobile_2')
+
     def display(self):
         super().display()
-        print("ADDRESS",self.address)
-        print("CITY",self.city)
-        print("DISTRICT",self.district)
-        print("PINCODE",self.pincode)
-        print("MOBILE NUMBER",self.mobile)
-        print("MOTHER NAME",self.mother_name)
-        print("MOBILE NUMBER",self.mobile_no)
-        print("FATHER NAME",self.father_name)
-        print("MOBILE NUMBER",self.mobile_2)
+        print("Address:", self.address)
+        print("City:", self.city)
+        print("District:", self.district)
+        print("Pincode:", self.pincode)
+        print("Mobile:", self.mobile)
+        print("Mother Name:", self.mother_name)
+        print("Mother Mobile:", self.mobile_no)
+        print("Father Name:", self.father_name)
+        print("Father Mobile:", self.mobile_2)
+
+
 class Bank_details(personal_info):
-    def __init__(self,**kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.bank=kwargs.get('bank')
-        self.__account_no=kwargs.get('account_no')
-        self.branch=kwargs.get('branch')
-        self.payments=[]
-        print("Select the payment methods")
-    def Phonepay(self,amount,utr_no):
-        self.__amount=amount
-        self.utr_no=utr_no
-        payment={"METHOD":"Phonepay",
-                 "AMOUNT":self.__amount,
-                 "UTR":self.utr_no
-                 }
+        self.bank = kwargs.get('bank')
+        self.__account_no = kwargs.get('account_no')
+        self.branch = kwargs.get('branch')
+        self.payments = []
+
+    def Phonepay(self, amount, utr_no):
+        payment = {
+            "METHOD": "Phonepay",
+            "AMOUNT": amount,
+            "UTR": utr_no
+        }
         self.payments.append(payment)
-    def cash(self,amount):
-        self.__amount=amount
-        payment={"METHOD":"CASH",
-                 "AMOUNT":self.__amount
-                }
+
+    def cash(self, amount):
+        payment = {
+            "METHOD": "CASH",
+            "AMOUNT": amount
+        }
         self.payments.append(payment)
-    def check(self,date,account):
-        self.__account=account
-        self.date=date
-        payment={"METHOD":"CHECK",
-                 "ACCOUNT":self.__account_no,
-                 "DAte":self.date
-                 }
+
+    def check(self, date, account):
+        payment = {
+            "METHOD": "CHECK",
+            "ACCOUNT": account,
+            "DATE": date
+        }
         self.payments.append(payment)
+
     def display(self):
         super().display()
-        print("BANK",self.bank)
-        print("Account number",self.__account_no)
-        print("BRANCH",self.branch)
-        print("PAYMENT HISTORY")
+        print("Bank:", self.bank)
+        print("Account number:", self.__account_no)
+        print("Branch:", self.branch)
+        print("Payment History:")
         for p in self.payments:
             print(p)
-students=[]
-while True: 
-    print("1.Add student")
-    print("2.view student")
-    print("3.search student")
+
+
+students = []
+
+while True:
+    print("\n1.Add student")
+    print("2.View students")
+    print("3.Search student")
     print("4.Exit")
-    
-    option=int(input("enter the option"))
-    if option==1:
-        data={}
-        data["name"] =input("Enter Name: ")
-        data["roll_no"]=int(input("Enter Roll Number: "))
-        data["stu_class"]=input("Enter Class: ")
-        data["address"]=input("Enter Address: ")
-        data["city"]=input("Enter City: ")
-        data["district"]=input("Enter District: ")
-        data["pincode"]=int(input("Enter Pincode: "))
-        data["mobile"]=int(input("Enter Mobile: "))
-        data["mother_name"]=input("Enter Mother Name: ")
-        data["mobile_no"]=int(input("Enter Mother Mobile: "))
-        data["father_name"]=input("Enter Father Name: ")
-        data["mobile_2"]=int(input("Enter Father Mobile: "))
-        data["bank"]=input("Enter Bank Name: ")
-        data["account_no"]=int(input("Enter Account Number: "))
-        data["branch"]=input("Enter Branch: ")
-    s=Bank_details(**data)
-    print("Select payment method")
-    print("1.Phonepay")
-    print("2.cash")
-    print("3.check")
-    pay=int(input("Enter the option"))
-    if pay==1:
-        amount=int(input("Ener the amount"))
-        utr=input("ENter the utr number")
-        s.Phonepay(amount,utr)
-    elif pay==2:
-        amount=int(input("Ener the amount"))
-        s.cash(amount)
-    elif pay==3:
-        date=input("ENter the date")
-        acc=input("ENtet the account")
-        s.check(data,acc)
-    students.append(s)
-     print("Student added successfully")
-    elif option==2:
-       if len(students)==0:
-           print("NO students found")
+
+    option = int(input("Enter the option: "))
+
+    if option == 1:
+        data = {}
+
+        data["name"] = input("Enter Name: ")
+        data["roll_no"] = int(input("Enter Roll Number: "))
+        data["stu_class"] = input("Enter Class: ")
+        data["address"] = input("Enter Address: ")
+        data["city"] = input("Enter City: ")
+        data["district"] = input("Enter District: ")
+        data["pincode"] = int(input("Enter Pincode: "))
+        data["mobile"] = int(input("Enter Mobile: "))
+        data["mother_name"] = input("Enter Mother Name: ")
+        data["mobile_no"] = int(input("Enter Mother Mobile: "))
+        data["father_name"] = input("Enter Father Name: ")
+        data["mobile_2"] = int(input("Enter Father Mobile: "))
+        data["bank"] = input("Enter Bank Name: ")
+        data["account_no"] = int(input("Enter Account Number: "))
+        data["branch"] = input("Enter Branch: ")
+
+        s = Bank_details(**data)
+
+        print("Select payment method")
+        print("1.Phonepay")
+        print("2.Cash")
+        print("3.Check")
+
+        pay = int(input("Enter option: "))
+
+        if pay == 1:
+            amount = int(input("Enter amount: "))
+            utr = input("Enter UTR number: ")
+            s.Phonepay(amount, utr)
+
+        elif pay == 2:
+            amount = int(input("Enter amount: "))
+            s.cash(amount)
+
+        elif pay == 3:
+            date = input("Enter date: ")
+            acc = input("Enter account: ")
+            s.check(date, acc)
+
+        students.append(s)
+        print("Student added successfully")
+
+    elif option == 2:
+        if len(students) == 0:
+            print("No students found")
         else:
             for s in students:
-                print("Student details")
-            s.display()
-    elif option==3:
-        n=int(input("ENter the roll no"))
-        found=False
-        if s.roll_no==n:
-            print("found")
-            s.display()
-            found=True
-            break
+                print("\nStudent Details")
+                s.display()
+
+    elif option == 3:
+        n = int(input("Enter roll number: "))
+        found = False
+
+        for s in students:
+            if s.roll_no == n:
+                print("Student found")
+                s.display()
+                found = True
+                break
+
         if not found:
             print("Student not found")
-    elif option==4:
-        print("Exiting.......")
+
+    elif option == 4:
+        print("Exiting...")
         break
-        
 
-
-        
-        
+    else:
+        print("Invalid option")
