@@ -5,7 +5,7 @@ Losing keys is something that happens to almost everyone. Sometimes it takes a l
 
 
 
-💡 SOLUTION 
+#💡 SOLUTION 
 This project is a simple way to solve that problem. It uses an Arduino with a buzzer and LED to help locate keys easily. It can be especially useful for elderly people.
 
 
@@ -43,3 +43,4 @@ Add mobile app control
 
 👩‍💻 Author
 Spoorthi S Navali
+i still did not do the model ill make thag i do it as much as soon.
