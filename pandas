@@ -1,0 +1,40 @@
+pandas is a python librar that is used for working with tables of data
+pandas let us:
+1.store the data
+2.read csv files 
+3.filter rows
+4.sort the dat
+5.finding the average
+6.handle missing values
+7.join tables
+import :
+import pandas as pd
+1.SERIES :
+import pandas as pd
+s=pd.Series([10,20,30,40])
+print(s)
+or s
+0    10
+1    20
+2    30
+3    40
+dtype:   # all values in the series are integers and of 64 bits
+
+custom index:
+import pandas as pd:
+s=pd.Series([100,200,300]
+index=['a','b','c'])
+print(s)
+A    100
+B    200
+C    300
+exmaples:
+import pandas as pd
+s=pd.Series([10,20,30] 
+        index=['A','B','C'])
+print(s)
+print(s['B'])----20
+
+DATA FRAME:
+it is a complete table
+
