@@ -1,4 +1,4 @@
-class Student:
+##class Student:
     def __init__(self, **kwargs):
         self.name = kwargs.get('name')
         self.roll_no = kwargs.get('roll_no')
